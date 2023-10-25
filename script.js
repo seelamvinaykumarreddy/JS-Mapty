@@ -10,5 +10,19 @@ const inputDistance = document.querySelector(".form__input--distance");
 const inputDuration = document.querySelector(".form__input--duration");
 const inputCadence = document.querySelector(".form__input--cadence");
 const inputElevation = document.querySelector(".form__input--elevation");
-//challenge 4
-//creating car class
+
+//Geolocation
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+      console.log(
+        `https://www.google.com/maps/@${latitude},${longitude},14z?entry=ttu`
+      );
+    },
+    function () {
+      alert("Could not get your position");
+    }
+  );
+}
